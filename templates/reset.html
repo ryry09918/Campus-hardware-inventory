@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Reset Password - Campus Hardware{% endblock %}
+{% block content %}
+<div class="card" style="max-width: 400px; margin: 2rem auto;">
+    <h3>Request Password Reset</h3>
+    <form method="POST" action="{{ url_for('reset_request') }}">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" required>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label>New Password</label>
+            <input type="password" name="new_password" required>
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirm_password" required>
+        </div>
+        <button type="submit" style="width: 100%;">Submit Request</button>
+    </form>
+    <div style="margin-top: 1rem; text-align: center; font-size: 0.85rem;">
+        <a href="{{ url_for('login') }}">Back to Login</a>
+    </div>
+</div>
+{% endblock %}
